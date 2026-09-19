@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f766e" />
+  <title>CompoundCare | Preparation Orders</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">⚗</div>
+      <div><strong>CompoundCare</strong><small>Medication Compounding</small></div>
+    </div>
+    <div class="status"><i></i> Pharmacy workspace</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">✦ SECURE PREPARATION WORKFLOW</div>
+        <h1>Preparation <span>Orders</span></h1>
+        <p>Create clear and complete medication compounding requests for the pharmacy team.</p>
+        <div class="stats">
+          <div><b id="prepCount">5</b><small>PREPARATIONS</small></div>
+          <div><b id="orderCount">0</b><small>ORDERS SUBMITTED</small></div>
+          <div><b id="draftCount">0</b><small>ITEMS IN DRAFT</small></div>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="orbit one"></div><div class="orbit two"></div>
+        <div class="bottle">
+          <div class="cap"></div>
+          <div class="label"><b>Rx</b><small>COMPOUND</small></div>
+          <div class="liquid"></div>
+        </div>
+        <div class="visual-tag">⚗ MEDICATION COMPOUNDING</div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-head">
+        <div><div class="kicker">NEW REQUEST</div><h2>Create preparation order</h2><p>Enter preparation details and fulfillment preference.</p></div>
+        <span class="pill">◷ Draft</span>
+      </div>
+
+      <section class="card form-card">
+        <div class="card-title"><span>01</span><div><h3>Compounding items</h3><p>Add one or more preparations to this request.</p></div></div>
+        <div class="desktop-labels"><span>Preparation</span><span>Strength</span><span>Quantity</span><span>Stock status</span><span></span></div>
+        <div id="items"></div>
+        <button class="text-btn" id="addItem">＋ Add another preparation</button>
+
+        <hr />
+
+        <div class="two-col">
+          <label class="field"><span>Requesting pharmacist</span><input id="pharmacist" placeholder="Enter pharmacist name" /></label>
+          <label class="field"><span>Order date</span><input id="orderDate" readonly /></label>
+        </div>
+
+        <div class="fulfillment">
+          <div><b>Fulfillment preference</b><small>How should the patient receive the preparation?</small></div>
+          <div class="choices">
+            <button class="choice active" data-value="Patient waiting"><span>◷</span><div><b>Patient waiting</b><small>Prepare for pickup in pharmacy</small></div></button>
+            <button class="choice" data-value="Ship by mail"><span>✉</span><div><b>Ship by mail</b><small>Prepare for postal delivery</small></div></button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="secondary" id="managePrep">＋ Add preparation</button>
+          <button class="primary" id="submitOrder">➤ Submit preparation order</button>
+        </div>
+      </section>
+
+      <section class="orders">
+        <div class="section-head">
+          <div><div class="kicker">QUEUE</div><h2>Submitted preparation orders</h2><p>Requests sent to the compounding workflow appear here.</p></div>
+          <span class="pill" id="orderPill">0 orders</span>
+        </div>
+        <div id="ordersList"></div>
+      </section>
+    </section>
+  </main>
+
+  <div id="toast"></div>
+
+  <div class="modal-wrap hidden" id="modal">
+    <div class="modal">
+      <div class="modal-head"><div><div class="kicker">PREPARATION LIST</div><h3>Add preparation</h3></div><button id="closeModal">×</button></div>
+      <p>Add a preparation and its default strength to the selectable pharmacy list.</p>
+      <label class="field"><span>Preparation name</span><input id="newPrepName" placeholder="e.g. Ketamine Oral Suspension" /></label>
+      <label class="field"><span>Strength</span><input id="newPrepStrength" placeholder="e.g. 10 mg/mL" /></label>
+      <div class="actions"><button class="secondary" id="cancelModal">Cancel</button><button class="primary" id="savePrep">Add preparation</button></div>
+    </div>
+  </div>
+
+  <footer>CompoundCare · Medication Compounding Workflow</footer>
+  <script src="script.js"></script>
+</body>
+</html>
